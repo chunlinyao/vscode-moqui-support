@@ -4,7 +4,7 @@ This is a simple extension for Moqui development.
 
 ## Features
 
-- Hightlight groovy source in `<script>` tag.  TBD
+- Hightlight groovy source in `<script>` tag.
 - Auto complete service name in `<service-call>`. TBD 
 - Auto complete `transition-include`. TBD
 - Auto complete `section-include`. TBD
