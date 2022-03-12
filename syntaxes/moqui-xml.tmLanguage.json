@@ -3,7 +3,10 @@
 	"injectionSelector": "L:text.xml -comment",
 	"patterns": [
         {
-            "include": "#xml-code-block"
+            "include": "#xml-action-block"
+        },
+        {
+            "include": "#xml-text-block"
         },
 		{ 
 			"include": "#xml-attr-groovy" 
@@ -13,6 +16,38 @@
 		}
     ],
     "repository": {
+        "xml-action-block": {
+            "begin": "(<)(actions|pre-actions|always-actions)(>)\\s*",
+            "end": "\\s*(<\\/)(\\2)(>)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "2": {
+                    "name": "entity.name.tag.localname.xml"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "2": {
+                    "name": "entity.name.tag.localname.xml"
+                }
+            },
+            "patterns": [
+                { "include": "#xml-code-block" },
+                {
+                    "include": "text.xml"
+                }
+            ]
+        },
         "xml-code-block": {
             "begin": "(<)(script)(>)\\s*",
             "end": "\\s*(<\\/)(\\2)(>)",
@@ -61,6 +96,110 @@
                 },
 				{
 					"include": "source.moqui-groovy"
+				}
+			]
+		},
+         "xml-text-block": {
+            "begin": "(<)(text)\\b(?!-)([^>]*)(>)",
+            "end": "\\s*(<\\/)(\\2)(>)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "4": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "3": {
+                    "patterns": [
+                        { "include": "text.xml#tagStuff" }
+                    ]
+                },
+                "2": {
+                    "name": "entity.name.tag.localname.xml"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "2": {
+                    "name": "entity.name.tag.localname.xml"
+                }
+            },
+            "patterns": [
+                {
+                    "begin": "\\s*(<!\\[CDATA\\[)\\s*",
+                    "end": "\\s*(\\]\\]>)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "string.unquoted.cdata.xml"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "string.unquoted.cdata.xml"
+                        }
+                    },
+                    "contentName": "meta.embedded.moqui.html",
+                    "patterns": [
+                        {
+                            "include": "text.html.basic"
+                        }
+                    ]
+                }
+            ]
+        },
+        "xml-js-block": {
+            "begin": "(<)(script)(>)\\s*",
+            "end": "\\s*(<\\/)(\\2)(>)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "2": {
+                    "name": "entity.name.tag.localname.xml"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.xml"
+                },
+                "2": {
+                    "name": "entity.name.tag.localname.xml"
+                }
+            },
+            "patterns": [
+                {
+                    "begin": "\\s*(<!\\[CDATA\\[)\\s*",
+                    "end": "\\s*(\\]\\]>)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "string.unquoted.cdata.xml"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "string.unquoted.cdata.xml"
+                        }
+                    },
+                    "contentName": "meta.embedded.moqui.groovy",
+                    "patterns": [
+                        {
+                            "include": "source.javascript"
+                        }
+                    ]
+                },
+				{
+					"include": "source.javascript"
 				}
 			]
 		},
