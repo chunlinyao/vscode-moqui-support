@@ -9,7 +9,7 @@
 	},
 	"license": "MulanPSL-2.0",
 	"publisher": "chunlinyao",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/chunlinyao/vscode-moqui-support.git"
