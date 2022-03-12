@@ -9,7 +9,7 @@
 	},
 	"license": "MulanPSL-2.0",
 	"publisher": "chunlinyao",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/chunlinyao/vscode-moqui-support.git"
@@ -41,11 +41,16 @@
 					"text.xml"
 				],
 				"scopeName": "embedded.moqui-groovy",
-				"path": "./syntaxes/moqui-groovy.tmLanguage.json",
+				"path": "./syntaxes/moqui-xml.tmLanguage.json",
 				"embeddedLanguages": {
 					"meta.embedded.moqui.groovy": "groovy",
-					"source.groovy.embedde.source": "groovy"
+					"source.groovy.embedded.source": "groovy"
 				}
+			},
+			{
+				"language": "groovy",
+				"scopeName": "source.moqui-groovy",
+				"path": "./syntaxes/moqui-groovy.tmLanguage.json"
 			}
 		]
 	},

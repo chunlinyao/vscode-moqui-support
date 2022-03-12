@@ -1,9 +1,8 @@
 # Change Log
 
-All notable changes to the "vscode-moqui-support" extension will be documented in this file.
+## [0.0.2]
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
+- Include groovy syntax file, modified groovy syntax for embedded in xml attribute value.
+## [0.0.1]
 
 - Initial release
